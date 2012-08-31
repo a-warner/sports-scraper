@@ -4,5 +4,5 @@ class PlayerDepth < ActiveRecord::Base
   belongs_to :position
 
   attr_accessible :depth
-  validates :depth, presence: true, uniqueness: { scope: [:team, :position] }
+  validates :depth, presence: true, uniqueness: { scope: [:team_id, :position_id] }
 end
