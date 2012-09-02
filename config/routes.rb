@@ -3,4 +3,7 @@ SportsScraper::Application.routes.draw do
 
   get 'search' => 'search#index'
   post 'search' => 'search#new'
+
+  resources :players, only: [:show]
+  resources :teams, only: [:show]
 end

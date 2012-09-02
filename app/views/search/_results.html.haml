@@ -7,5 +7,5 @@
     %tbody
       - results.each do |result|
         %tr
-          %td= result.name
-          %td= result.url
+          %td= link_to result.name, result
+          %td= link_to result.url, result.url

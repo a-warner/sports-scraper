@@ -1,0 +1,7 @@
+%h1= player.name
+= link_to player.url, player.url
+- [:spin, :news, :outlook].each do |c|
+  - if player.send(c)
+    %div{class: c}
+      %h3= c.capitalize
+      %p= player.send(c)

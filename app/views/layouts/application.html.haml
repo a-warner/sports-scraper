@@ -14,8 +14,8 @@
         .container
           %a.brand{href: '/'} SportsScraper
           %ul.nav
-            %form.navbar-search{ class: 'pull-left', id: 'search' }
-              %input.search-query{ type: 'text', placeholder: 'Search' }
+            %form.navbar-search{ class: 'pull-left', id: 'search' , action: '/search', method: 'POST' }
+              %input.search-query{ type: 'text', placeholder: 'Search', name: 'query', value: (query if (defined?(query) && query)) }
     .container-fluid
       .row
         .span8.offset3
