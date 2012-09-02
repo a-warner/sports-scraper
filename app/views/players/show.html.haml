@@ -1,5 +1,8 @@
 %h1= player.name
-= link_to player.url, player.url
+%h3= link_to player.team.name, player.team
+- player.player_depths.each do |pd|
+  %h3= "#{pd.position.code}##{pd.depth}"
+= link_to player.url, player.url, target: '_blank'
 - [:spin, :news, :outlook].each do |c|
   - if player.send(c)
     %div{class: c}

@@ -4,7 +4,7 @@
     submit: (e) ->
       if onSearchPage
         e.preventDefault()
-    keypress: (e) ->
+    keyup: (e) ->
       if onSearchPage
         query = $(this).find('.search-query').val()
         request = $.ajax({
