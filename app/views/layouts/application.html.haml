@@ -1,0 +1,29 @@
+!!! 5
+%html(lang="en-US" class="#{controller_name}-#{action_name}")
+  %head
+    %title
+      - if content_for?(:title)
+        = yield(:title)
+      - else
+        Sports Scraper
+  = stylesheet_link_tag "application", :media => "all"
+  = csrf_meta_tags
+  %body
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          %a.brand{href: '/'} SportsScraper
+          %ul.nav
+            %form.navbar-search{ class: 'pull-left', id: 'search' }
+              %input.search-query{ type: 'text', placeholder: 'Search' }
+    .container-fluid
+      .row
+        .span8.offset3
+          - flash.keys.each do |key|
+            .alert{ class: "alert-#{key}" }
+              %a.close{ href: '#', "data-dismiss" => "alert" } x
+              %h4.alert-heading= key.capitalize
+              = flash[key]
+              - flash.delete(key)
+          = yield
+  = javascript_include_tag "application"

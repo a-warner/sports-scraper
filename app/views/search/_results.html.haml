@@ -1,0 +1,11 @@
+- if results.any?
+  %table.table{class: 'table-striped'}
+    %thead
+      %tr
+        %th Name
+        %th Url
+    %tbody
+      - results.each do |result|
+        %tr
+          %td= result.name
+          %td= result.url

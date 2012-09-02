@@ -5,6 +5,10 @@ class Team < ActiveRecord::Base
   has_many :players
   has_many :player_depths
 
+  scope :for_query, ->(query) do
+    where("name like ?", "%#{query}%")
+  end
+
   def depth_chart_uri
     url.gsub("team","team/depth")
   end
