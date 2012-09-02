@@ -14,6 +14,8 @@
         .container
           %a.brand{href: '/'} SportsScraper
           %ul.nav
+            %li
+              = link_to 'Team Depths', team_depths_path
             %form.navbar-search{ class: 'pull-left', id: 'search' , action: '/search', method: 'POST' }
               %input.search-query{ type: 'text', placeholder: 'Search', name: 'query', value: (query if (defined?(query) && query)) }
     .container-fluid

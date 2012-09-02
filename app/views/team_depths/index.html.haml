@@ -1,0 +1,18 @@
+%ul.nav{class: 'nav-tabs'}
+  - Position.all.each do |pos|
+    %li{ class: ('active' if pos == position) }
+      = link_to pos.code, team_depths_path(position: pos.code)
+%table.table{class: 'table-striped'}
+  %thead
+    %tr
+      %th Team
+      - PlayerDepth.depth_range.each do |depth|
+        %th= depth
+  %tbody
+    - Team.all.each do |t|
+      %tr
+        %td= link_to t.name, t
+        - PlayerDepth.depth_range.to_a.zip(t.player_depths.at_position(position)).each do |depth, player_depth|
+          - player = player_depth.player if player_depth
+          %td= link_to(player.name, player) if player
+

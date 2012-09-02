@@ -8,4 +8,6 @@ SportsScraper::Application.routes.draw do
   resources :teams, only: [:show] do
     resources :player_depths, only: [:index]
   end
+
+  get 'team_depths' => 'team_depths#index'
 end

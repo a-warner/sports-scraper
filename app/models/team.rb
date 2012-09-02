@@ -5,6 +5,8 @@ class Team < ActiveRecord::Base
   has_many :players
   has_many :player_depths
 
+  default_scope order(:name)
+
   scope :for_query, ->(query) do
     where("name like ?", "%#{query}%")
   end
