@@ -1,2 +1,4 @@
 %h1= team.name
 = link_to team.url, team.url
+%h3 Depth
+= link_to 'All', team_player_depths_path(team)

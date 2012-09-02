@@ -16,4 +16,12 @@ class PlayerDepth < ActiveRecord::Base
     end
     where(position_id: position_id)
   end
+
+  def self.maximum_depth
+    self.select("max(depth)").pluck("max(depth)").first
+  end
+
+  def self.depth_range
+    (1..maximum_depth)
+  end
 end
