@@ -6,10 +6,12 @@ namespace :scrape do
     players.each do |player|
       puts "Scraping #{player.name}"
       player_page = Nokogiri::HTML(open(player.url))
-      fantasy_content = JSON.parse(player_page.at_css("#fantasy-content").text)
-      player.update_attributes!(news: fantasy_content["mostRecentNews"].try(:[], "news"),
-                               spin: fantasy_content["mostRecentNews"].try(:[], "spin"),
-                               outlook: fantasy_content["seasonOutlook"].try(:[], "outlook"))
+      if fantasy_content_id = player_page.at_css("#fantasy-content")
+        fantasy_content = JSON.parse(fantasy_content_id.text)
+        player.update_attributes!(news: fantasy_content["mostRecentNews"].try(:[], "news"),
+                                 spin: fantasy_content["mostRecentNews"].try(:[], "spin"),
+                                 outlook: fantasy_content["seasonOutlook"].try(:[], "outlook"))
+      end
     end
   end
 end
