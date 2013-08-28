@@ -1,0 +1,12 @@
+%table.table{class: 'table-striped'}
+  %thead
+    %th Position
+    - PlayerDepth.depth_range.each do |depth|
+      %th= depth
+  %tbody
+    - Position.all.each do |pos|
+      %tr
+        %td= pos.code
+        - PlayerDepth.depth_range.to_a.zip(team.player_depths.at_position(pos)).each do |depth, player_depth|
+          - player = player_depth.player if player_depth
+          %td= link_to_player(player)
