@@ -8,6 +8,6 @@
       - results.each do |result|
         %tr
           %td= link_to result.name, result
-          %td= link_to result.url, result.url
+          %td= link_to result.url, result.url, target: '_blank'
 - else
   %h1 No results

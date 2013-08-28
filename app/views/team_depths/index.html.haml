@@ -14,5 +14,5 @@
         %td= link_to t.name, t
         - PlayerDepth.depth_range.to_a.zip(t.player_depths.at_position(position)).each do |depth, player_depth|
           - player = player_depth.player if player_depth
-          %td= link_to(player.name, player) if player
+          %td= link_to_player(player)
 
