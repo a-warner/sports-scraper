@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap
+//= require bootstrap-2.3.2
 //= require handlebars-1.0.0.beta.6
 //= require jquery.hotkeys.7dfe654038e3606fefe17650fde7be3b06e428c8
 //= require_tree .

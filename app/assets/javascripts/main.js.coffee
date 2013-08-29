@@ -19,4 +19,8 @@
           alert("There was an error!")
         )
   })
+
+  if !onSearchPage
+    $('.search-query').typeahead
+      source: AUTOCOMPLETE_DATA,
 ) jQuery, window

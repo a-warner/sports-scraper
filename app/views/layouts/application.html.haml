@@ -17,7 +17,9 @@
             %li
               = link_to 'Team Depths', team_depths_path
             %form.navbar-search{ class: 'pull-left', id: 'search' , action: '/search', method: 'POST' }
-              %input.search-query{ type: 'text', placeholder: 'Search', name: 'query', value: (query if (defined?(query) && query)) }
+              = content_for :page_javascript do
+                var AUTOCOMPLETE_DATA = JSON.parse(#{Autocomplete.data.to_json.inspect.html_safe})
+              %input.search-query{ type: 'text', autocomplete: 'off', placeholder: 'Search', name: 'query', value: (query if (defined?(query) && query)) }
     .container-fluid
       .row
         .span8.offset3
@@ -28,4 +30,5 @@
               = flash[key]
               - flash.delete(key)
           = yield
+  = javascript_tag { yield :page_javascript }
   = javascript_include_tag "application"
