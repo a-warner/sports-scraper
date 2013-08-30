@@ -3,6 +3,13 @@
 - player.player_depths.each do |pd|
   %h3= "#{pd.position.code}##{pd.depth}"
 = link_to player.url, player.url, target: '_blank'
+%div
+  %h3
+    Status:
+    %span{class: ('not-ok' unless player.status_ok?) }= player.status
+  - if player.status_description.present?
+    %p= player.status_description
+
 - [:spin, :news, :outlook].each do |c|
   - if player.send(c)
     %div{class: c}

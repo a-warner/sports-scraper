@@ -12,6 +12,15 @@ namespace :scrape do
                                  spin: fantasy_content["mostRecentNews"].try(:[], "spin"),
                                  outlook: fantasy_content["seasonOutlook"].try(:[], "outlook"))
       end
+
+      if player_status = player_page.at_css('#player-status-main')
+        status_container = player_status.at_css('.player-status')
+
+        status = status_container.text.try(:strip)
+        status_description = status_container.try(:next).try(:text)
+
+        player.update_attributes!(status: status, status_description: status_description)
+      end
     end
   end
 end
