@@ -7,6 +7,7 @@ gem 'nokogiri'
 gem 'pry'
 gem 'rails', '3.2.7'
 gem 'sqlite3'
+gem 'thin'
 
 group :assets do
   gem 'sass'
