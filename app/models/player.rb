@@ -6,7 +6,7 @@ class Player < ActiveRecord::Base
 
   has_many :player_depths
 
-  scope :unscraped, where("news is null")
+  scope :unscraped, -> { where(scraped: false) }
 
   scope :for_query, ->(query) do
     where("name like ?", "%#{query}%")
