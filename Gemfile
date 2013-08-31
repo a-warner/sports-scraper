@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'active_model_serializers'
 gem 'decent_exposure'
 gem 'haml'
 gem 'jquery-rails'

@@ -7,6 +7,14 @@ class Team < ActiveRecord::Base
 
   default_scope order(:name)
 
+  def self.most_recently_updated
+    order(updated_at: :desc).first
+  end
+
+  def self.most_recent_updated_at
+    most_recently_updated.updated_at
+  end
+
   scope :for_query, ->(query) do
     where("name like ?", "%#{query}%")
   end

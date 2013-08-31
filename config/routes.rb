@@ -5,7 +5,7 @@ SportsScraper::Application.routes.draw do
   post 'search' => 'search#new'
 
   resources :players, only: [:show]
-  resources :teams, only: [:show] do
+  resources :teams, only: [:index, :show] do
     resources :player_depths, only: [:index]
   end
 
