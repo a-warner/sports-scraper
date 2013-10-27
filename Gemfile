@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '1.9.3'
 
 gem 'active_model_serializers'
 gem 'decent_exposure'
