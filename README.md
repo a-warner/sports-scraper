@@ -5,7 +5,7 @@ Scrapes ESPN for fantasy content and allows quick access with a web UI.  ESPN's 
 ## Setup
 
     bundle
-    rake db:create && rake db:seed && rake scrape:teams && rake scrape:depth && rake scrape:players
+    rake db:create && rake db:migrate && rake db:seed && rake scrape:all
 
 ## Disclaimer
 
