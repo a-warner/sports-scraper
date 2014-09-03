@@ -5,7 +5,7 @@ module Autocomplete
   delegate :perform_caching, to: 'ActionController::Base'
 
   def data
-    cache [Team.order(updated_at: :desc).last, Player.order(updated_at: :desc).last] do
+    cache [Team.most_recently_updated, Player.most_recently_updated] do
       paths = Team.all.map { |t| [t.name, team_path(t)] } + Player.all.map { |p| [p.name, player_path(p)] }
       paths.each_with_object({}) { |(n, p), h| h[n] = p }
     end
