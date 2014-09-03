@@ -22,5 +22,11 @@
 
   if !onSearchPage
     $('.search-query').typeahead
-      source: AUTOCOMPLETE_DATA,
+      source: (name for name, path of AUTOCOMPLETE_DATA),
+      updater: (item) ->
+        if AUTOCOMPLETE_DATA[item]
+          window.location.href = AUTOCOMPLETE_DATA[item]
+          'Loading...'
+        else
+          item
 ) jQuery, window
